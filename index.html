@@ -126,6 +126,23 @@ details p{color:var(--muted);margin:12px 0 0}
 .final{text-align:center;border-radius:40px;padding:80px 24px;background:radial-gradient(700px 360px at 50% 0,rgba(197,255,41,.22),transparent 65%),linear-gradient(180deg,#10301f,#081710);border:1px solid rgba(197,255,41,.25);position:relative;overflow:hidden}
 .final h2{max-width:760px;margin:12px auto 16px}
 .final .cta{justify-content:center;margin-top:30px}
+section[id]{scroll-margin-top:80px}
+.signup{max-width:560px;margin:30px auto 0;text-align:left}
+.signup-row{display:flex;gap:10px;background:rgba(0,0,0,.25);border:1px solid rgba(197,255,41,.3);border-radius:999px;padding:6px}
+.signup-row:focus-within{border-color:var(--lime);box-shadow:0 0 0 4px rgba(197,255,41,.15)}
+.signup input[type=email]{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:inherit;font-size:16px;padding:10px 16px}
+.signup input[type=email]::placeholder{color:var(--muted)}
+.signup .btn{flex:none}
+.signup .btn[disabled]{opacity:.6;cursor:progress;transform:none}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:16px 6px 0;color:var(--muted);font-size:14px;line-height:1.5}
+.consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--lime);flex:none}
+.consent a{color:var(--text)}
+.signup-msg{min-height:24px;margin:14px 6px 0;font-weight:600;font-size:15px}
+.signup-msg.ok{color:var(--lime)}.signup-msg.err{color:#ff9a8a}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.final .contact{margin-top:26px;color:var(--muted);font-size:14px}
+.final .contact a{color:var(--text)}
+@media (max-width:520px){.signup-row{flex-direction:column;border-radius:22px}.signup .btn{justify-content:center}}
 
 footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);font-size:14px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
@@ -176,7 +193,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
       <a href="#premium">Prémium</a>
       <a href="#gyik">GYIK</a>
     </div>
-    <a href="#letoltes" class="btn btn-primary">Letöltés</a>
+    <a href="#teszteles" class="btn btn-primary">Jelentkezés</a>
   </div>
 </nav>
 
@@ -187,9 +204,9 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
       <h1>Minden túra <span class="grad">egy új kaland.</span></h1>
       <p class="lead">A TrailQuest a túrázást játékká teszi. Küldetések, offline térkép, kiterjesztett valóságos csúcsnéző, hangos navigáció és SOS segítség, mind egy alkalmazásban.</p>
       <div class="cta">
-        <a href="#letoltes" class="btn btn-primary">
+        <a href="#teszteles" class="btn btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Zm11.6 11.6 2.6 2.6-11.5 6.6 8.9-9.2Zm3.9-3.9 3 1.7c.8.5.8 1.6 0 2.1l-3 1.7L16.3 12l2.8-2.5ZM6.3 1.4l11.5 6.6-2.6 2.6-8.9-9.2Z"/></svg>
-          Google Play
+          Jelentkezz tesztelőnek
         </a>
         <a href="#funkciok" class="btn btn-ghost">Mit tud? ↓</a>
       </div>
@@ -464,16 +481,23 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
   </div>
 </section>
 
-<section id="letoltes" style="padding-top:20px">
+<section id="teszteles" style="padding-top:20px">
   <div class="container">
     <div class="final reveal">
-      <div class="eyebrow">Hamarosan</div>
-      <h2>Készen állsz a következő kalandra?</h2>
-      <p class="sub" style="margin:0 auto">A TrailQuest hamarosan elérhető a Google Playen. Kérdésed van? Írj nekünk bátran.</p>
-      <div class="cta">
-        <span class="btn btn-primary" aria-disabled="true">Hamarosan a Google Playen</span>
-        <a class="btn btn-ghost" href="mailto:trailquestsupport@gmail.com">trailquestsupport@gmail.com</a>
-      </div>
+      <div class="eyebrow">Zárt teszt</div>
+      <h2>Próbáld ki elsőként a TrailQuestet!</h2>
+      <p class="sub" style="margin:0 auto">Mielőtt megjelenik a Google Playen, zárt tesztet tartunk. Add meg a Google-fiókodhoz tartozó e-mail címed, és meghívunk a tesztelők közé.</p>
+      <form class="signup" id="signup" novalidate>
+        <div class="signup-row">
+          <label for="signup-email" class="hp">E-mail cím</label>
+          <input type="email" id="signup-email" name="email" placeholder="pelda@gmail.com" autocomplete="email" maxlength="254" required>
+          <button type="submit" class="btn btn-primary" id="signup-btn">Jelentkezem</button>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="signup-web">Weboldal</label><input type="text" id="signup-web" name="website" tabindex="-1" autocomplete="off"></div>
+        <label class="consent"><input type="checkbox" id="signup-consent" required><span>Hozzájárulok, hogy az e-mail címemet a tesztre való meghíváshoz kezeljétek. Részletek az <a href="adatvedelem/">adatvédelmi tájékoztatóban</a>.</span></label>
+        <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="contact">Kérdésed van? Írj nekünk: <a href="mailto:trailquestsupport@gmail.com">trailquestsupport@gmail.com</a></p>
     </div>
   </div>
 </section>
@@ -492,6 +516,30 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 </footer>
 
 <script>
+(function(){
+  var URL='https://gnagburxuordgldveoic.supabase.co/rest/v1/tester_signups';
+  var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduYWdidXJ4dW9yZGdsZHZlb2ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0MzgwOTYsImV4cCI6MjEwMzAxNDA5Nn0.7XSPrH-f-_xbxvdhRkbr3LieJM5rQd0zey6PSl3wH98';
+  var form=document.getElementById('signup'); if(!form) return;
+  var email=document.getElementById('signup-email'), consent=document.getElementById('signup-consent');
+  var btn=document.getElementById('signup-btn'), msg=document.getElementById('signup-msg'), hp=document.getElementById('signup-web');
+  function show(text,ok){msg.textContent=text;msg.className='signup-msg '+(ok?'ok':'err');}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=email.value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)||v.length>254){show('Kérlek, adj meg egy érvényes e-mail címet.',false);email.focus();return;}
+    if(!consent.checked){show('A jelentkezéshez fogadd el az adatkezelést.',false);consent.focus();return;}
+    if(hp.value){show('Köszönjük, megkaptuk a jelentkezésed!',true);form.reset();return;}
+    btn.disabled=true;btn.textContent='Küldés…';show('',true);
+    fetch(URL,{method:'POST',headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({email:v})})
+      .then(function(r){
+        if(r.ok){show('Köszönjük! Hamarosan küldjük a meghívót a megadott címre.',true);form.reset();}
+        else if(r.status===409){show('Ezzel a címmel már jelentkeztél, köszönjük!',true);form.reset();}
+        else{show('Most nem sikerült elküldeni. Kérlek, próbáld újra később.',false);}
+      })
+      .catch(function(){show('Nincs kapcsolat a szerverrel. Ellenőrizd az internetet, és próbáld újra.',false);})
+      .then(function(){btn.disabled=false;btn.textContent='Jelentkezem';});
+  });
+})();
 (function(){
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
