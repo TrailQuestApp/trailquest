@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TrailQuest – Túrázz kalandként</title>
-<meta name="description" content="TrailQuest: túraalkalmazás küldetésekkel, offline térképpel, kiterjesztett valóságos csúcsnézővel, hangos navigációval és SOS funkcióval.">
+<link rel="alternate" hreflang="hu" href="https://trailquestapp.github.io/trailquest/">
+<link rel="alternate" hreflang="en" href="https://trailquestapp.github.io/trailquest/?lang=en">
+<link rel="alternate" hreflang="de" href="https://trailquestapp.github.io/trailquest/?lang=de">
+<link rel="alternate" hreflang="x-default" href="https://trailquestapp.github.io/trailquest/">
+<meta name="description" id="meta-desc" content="TrailQuest: túraalkalmazás küldetésekkel, offline térképpel, kiterjesztett valóságos csúcsnézővel, hangos navigációval és SOS funkcióval.">
 <meta name="theme-color" content="#07150f">
 <meta property="og:title" content="TrailQuest – Túrázz kalandként">
 <meta property="og:description" content="Küldetések, offline térkép, AR csúcsnéző és biztonság egy alkalmazásban.">
@@ -35,6 +39,15 @@ a{color:inherit}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(197,255,41,.35)}
 .btn-ghost{background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--text)}
 .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+/* LANG */
+.lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.lang button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;padding:6px 10px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.lang button:hover{color:var(--text)}
+.lang button[aria-pressed="true"]{background:var(--lime);color:#0a2a1d}
+.lang button:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.nav-end{display:flex;align-items:center;gap:12px}
+@media (max-width:420px){.logo{font-size:0;gap:0}.nav-end{gap:8px}.lang button{padding:6px 8px}}
 
 /* HERO */
 .hero{position:relative;padding:90px 0 60px;overflow:hidden}
@@ -187,38 +200,45 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
       TrailQuest
     </a>
     <div class="nav-links">
-      <a href="#funkciok">Funkciók</a>
-      <a href="#ar">AR csúcsnéző</a>
-      <a href="#kuldetesek">Küldetések</a>
-      <a href="#premium">Prémium</a>
-      <a href="#gyik">GYIK</a>
+      <a href="#funkciok" data-i18n="nav.features">Funkciók</a>
+      <a href="#ar" data-i18n="nav.ar">AR csúcsnéző</a>
+      <a href="#kuldetesek" data-i18n="nav.quests">Küldetések</a>
+      <a href="#premium" data-i18n="nav.premium">Prémium</a>
+      <a href="#gyik" data-i18n="nav.faq">GYIK</a>
     </div>
-    <a href="#teszteles" class="btn btn-primary">Jelentkezés</a>
+    <div class="nav-end">
+      <div class="lang" role="group" aria-label="Nyelv / Language / Sprache">
+        <button type="button" data-lang="hu" lang="hu" aria-pressed="true" title="Magyar">HU</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
+        <button type="button" data-lang="de" lang="de" aria-pressed="false" title="Deutsch">DE</button>
+      </div>
+      <a href="#teszteles" class="btn btn-primary" data-i18n="nav.signup">Jelentkezés</a>
+    </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="badge"><i></i> Hamarosan a Google Playen</span>
-      <h1>Minden túra <span class="grad">egy új kaland.</span></h1>
-      <p class="lead">A TrailQuest a túrázást játékká teszi. Küldetések, offline térkép, kiterjesztett valóságos csúcsnéző, hangos navigáció és SOS segítség, mind egy alkalmazásban.</p>
+      <span class="badge" data-i18n="hero.badge"><i></i> Hamarosan a Google Playen</span>
+      <h1 data-i18n="hero.title">Minden túra <span class="grad">egy új kaland.</span></h1>
+      <p class="lead" data-i18n="hero.lead">A TrailQuest a túrázást játékká teszi. Küldetések, offline térkép, kiterjesztett valóságos csúcsnéző, hangos navigáció és SOS segítség, mind egy alkalmazásban.</p>
       <div class="cta">
         <a href="#teszteles" class="btn btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Zm11.6 11.6 2.6 2.6-11.5 6.6 8.9-9.2Zm3.9-3.9 3 1.7c.8.5.8 1.6 0 2.1l-3 1.7L16.3 12l2.8-2.5ZM6.3 1.4l11.5 6.6-2.6 2.6-8.9-9.2Z"/></svg>
-          Jelentkezz tesztelőnek
+          <span data-i18n="hero.cta">Jelentkezz tesztelőnek</span>
         </a>
-        <a href="#funkciok" class="btn btn-ghost">Mit tud? ↓</a>
+        <a href="#funkciok" class="btn btn-ghost" data-i18n="hero.more">Mit tud? ↓</a>
       </div>
       <div class="trust">
-        <div><b>4000+</b>küldetés</div>
-        <div><b>3500+</b>csúcs és látnivaló AR-ban</div>
-        <div><b>3</b>nyelv: HU · EN · DE</div>
+        <div data-i18n="hero.t1"><b>4000+</b>küldetés</div>
+        <div data-i18n="hero.t2"><b>3500+</b>csúcs és látnivaló AR-ban</div>
+        <div data-i18n="hero.t3"><b>3</b>nyelv: HU · EN · DE</div>
       </div>
     </div>
 
     <div class="phone-wrap">
-      <div class="float-card fc1"><div class="fc-ic">🏆</div><div><b>Küldetés teljesítve</b><small>XP jóváírva</small></div></div>
+      <div class="float-card fc1"><div class="fc-ic">🏆</div><div data-i18n="hero.fc1"><b>Küldetés teljesítve</b><small>XP jóváírva</small></div></div>
       <div class="phone">
         <div class="screen">
           <div class="notch"></div>
@@ -239,18 +259,18 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
             <circle cx="230" cy="250" r="14" fill="rgba(197,255,41,.25)"/><circle cx="230" cy="250" r="7" fill="#c5ff29" stroke="#0a2a1d" stroke-width="3"/>
             <g transform="translate(196 104)"><path d="M14 0c8 0 14 6 14 14 0 10-14 22-14 22S0 24 0 14C0 6 6 0 14 0z" fill="#5ee6a8"/><circle cx="14" cy="14" r="5" fill="#0a2a1d"/></g>
             <rect x="16" y="52" width="244" height="64" rx="18" fill="rgba(6,18,13,.75)" stroke="rgba(255,255,255,.08)"/>
-            <text x="32" y="78" fill="#9db3a6" font-size="11" font-family="sans-serif" font-weight="700" letter-spacing="1.2">AKTÍV TÚRA</text>
-            <text x="32" y="102" fill="#fff" font-size="19" font-family="sans-serif" font-weight="800">Kékes felé</text>
+            <text x="32" y="78" fill="#9db3a6" font-size="11" font-family="sans-serif" font-weight="700" letter-spacing="1.2" data-i18n="svg.active">AKTÍV TÚRA</text>
+            <text x="32" y="102" fill="#fff" font-size="19" font-family="sans-serif" font-weight="800" data-i18n="svg.towards">Kékes felé</text>
             <rect x="16" y="486" width="244" height="80" rx="20" fill="rgba(6,18,13,.85)" stroke="rgba(255,255,255,.08)"/>
             <circle cx="52" cy="526" r="18" fill="#ff5a5a"/><rect x="45" y="519" width="14" height="14" rx="3" fill="#fff"/>
             <g font-family="sans-serif">
-              <text x="82" y="520" font-size="10" fill="#9db3a6" font-weight="700" letter-spacing="1">RÖGZÍTÉS</text>
-              <text x="82" y="541" font-size="16" fill="#fff" font-weight="800">Túra folyamatban</text>
+              <text x="82" y="520" font-size="10" fill="#9db3a6" font-weight="700" letter-spacing="1" data-i18n="svg.rec">RÖGZÍTÉS</text>
+              <text x="82" y="541" font-size="16" fill="#fff" font-weight="800" data-i18n="svg.inprogress">Túra folyamatban</text>
             </g>
           </svg>
         </div>
       </div>
-      <div class="float-card fc2"><div class="fc-ic">⛰️</div><div><b>Kékes · 1014 m</b><small>AR csúcsnéző</small></div></div>
+      <div class="float-card fc2"><div class="fc-ic">⛰️</div><div data-i18n="hero.fc2"><b>Kékes · 1014 m</b><small data-i18n="nav.ar">AR csúcsnéző</small></div></div>
     </div>
   </div>
 </header>
@@ -258,16 +278,16 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 <section id="funkciok">
   <div class="container">
     <div class="head center reveal">
-      <div class="eyebrow">Funkciók</div>
-      <h2>Minden, ami egy jó túrához kell.</h2>
-      <p class="sub">Tervezés, navigáció, felfedezés és biztonság. A TrailQuest végigkísér az indulástól a csúcsig és vissza.</p>
+      <div class="eyebrow" data-i18n="nav.features">Funkciók</div>
+      <h2 data-i18n="feat.title">Minden, ami egy jó túrához kell.</h2>
+      <p class="sub" data-i18n="feat.sub">Tervezés, navigáció, felfedezés és biztonság. A TrailQuest végigkísér az indulástól a csúcsig és vissza.</p>
     </div>
 
     <div class="bento">
       <div class="tile s4 reveal">
         <div class="ic">🗺️</div>
-        <h3>Térkép, ami offline is működik</h3>
-        <p>Turistautak, csúcsok és látnivalók egy letisztult térképen. Töltsd le a területet előre, és térerő nélkül is tudni fogod, merre jársz.</p>
+        <h3 data-i18n="feat.map.h">Térkép, ami offline is működik</h3>
+        <p data-i18n="feat.map.p">Turistautak, csúcsok és látnivalók egy letisztult térképen. Töltsd le a területet előre, és térerő nélkül is tudni fogod, merre jársz.</p>
         <div class="tile-art" aria-hidden="true">
           <svg viewBox="0 0 600 170" width="100%" height="100%" preserveAspectRatio="none">
             <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e241a" stop-opacity="0"/><stop offset="1" stop-color="#0e241a"/></linearGradient></defs>
@@ -282,49 +302,49 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
       </div>
       <div class="tile s2 reveal">
         <div class="ic">⏺️</div>
-        <h3>Túrarögzítés</h3>
-        <p>GPS-nyomvonal, táv, idő és szintemelkedés. Kikapcsolt képernyővel is pontosan rögzít.</p>
+        <h3 data-i18n="feat.rec.h">Túrarögzítés</h3>
+        <p data-i18n="feat.rec.p">GPS-nyomvonal, táv, idő és szintemelkedés. Kikapcsolt képernyővel is pontosan rögzít.</p>
       </div>
       <div class="tile s2 reveal">
         <div class="ic">🔁</div>
-        <h3>Körtúra tervező</h3>
-        <p>Add meg, mennyit mennél, és kapsz egy körutat, ami visszahoz a kiindulópontra.</p>
+        <h3 data-i18n="feat.loop.h">Körtúra tervező</h3>
+        <p data-i18n="feat.loop.p">Add meg, mennyit mennél, és kapsz egy körutat, ami visszahoz a kiindulópontra.</p>
       </div>
       <div class="tile s2 reveal">
         <div class="ic">🔊</div>
-        <h3>Hangos navigáció</h3>
-        <p>Szól, merre fordulj, és ha letérsz az útról, új útvonalat tervez.</p>
+        <h3 data-i18n="feat.voice.h">Hangos navigáció</h3>
+        <p data-i18n="feat.voice.p">Szól, merre fordulj, és ha letérsz az útról, új útvonalat tervez.</p>
       </div>
       <div class="tile s2 reveal">
         <div class="ic">🪧</div>
-        <h3>Turistajelzések</h3>
-        <p>Kék sáv, piros háromszög, zöld kör? Megmutatjuk, melyik jel hová vezet.</p>
+        <h3 data-i18n="feat.signs.h">Turistajelzések</h3>
+        <p data-i18n="feat.signs.p">Kék sáv, piros háromszög, zöld kör? Megmutatjuk, melyik jel hová vezet.</p>
       </div>
       <div class="tile s3 reveal">
-        <span class="tag">PRÉMIUM</span>
+        <span class="tag" data-i18n="tag.premium">PRÉMIUM</span>
         <div class="ic">🌦️</div>
-        <h3>Időjárás és élő radar</h3>
-        <p>Aktuális időjárás ott, ahol éppen vagy, élő csapadékradar, és riasztás, ha zivatar közeledik a környékedre.</p>
+        <h3 data-i18n="feat.weather.h">Időjárás és élő radar</h3>
+        <p data-i18n="feat.weather.p">Aktuális időjárás ott, ahol éppen vagy, élő csapadékradar, és riasztás, ha zivatar közeledik a környékedre.</p>
       </div>
       <div class="tile s3 reveal">
         <div class="ic">❤️</div>
         <h3>Health Connect</h3>
-        <p>A túráid bekerülnek a Health Connectbe, így az edzésnaplódban is látod, mennyit mozogtál.</p>
+        <p data-i18n="feat.hc.p">A túráid bekerülnek a Health Connectbe, így az edzésnaplódban is látod, mennyit mozogtál.</p>
       </div>
       <div class="tile s2 half reveal">
         <div class="ic">🏅</div>
-        <h3>Érmek és szintek</h3>
-        <p>Gyűjts XP-t, lépj szintet, szerezz érmeket.</p>
+        <h3 data-i18n="feat.medals.h">Érmek és szintek</h3>
+        <p data-i18n="feat.medals.p">Gyűjts XP-t, lépj szintet, szerezz érmeket.</p>
       </div>
       <div class="tile s2 half reveal">
         <div class="ic">📈</div>
-        <h3>Statisztika és napló</h3>
-        <p>Minden túrád egy helyen, visszanézhető útvonallal.</p>
+        <h3 data-i18n="feat.stats.h">Statisztika és napló</h3>
+        <p data-i18n="feat.stats.p">Minden túrád egy helyen, visszanézhető útvonallal.</p>
       </div>
       <div class="tile s2 reveal">
         <div class="ic">🥇</div>
-        <h3>Ranglista</h3>
-        <p>Mérd össze magad a többi túrázóval.</p>
+        <h3 data-i18n="feat.lb.h">Ranglista</h3>
+        <p data-i18n="feat.lb.p">Mérd össze magad a többi túrázóval.</p>
       </div>
     </div>
   </div>
@@ -333,13 +353,13 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 <section id="ar">
   <div class="container split">
     <div class="reveal">
-      <div class="eyebrow">AR csúcsnéző</div>
-      <h2>Tartsd a kamerát a hegyekre. <span class="grad">Megmondjuk, mit látsz.</span></h2>
-      <p class="sub">A kiterjesztett valóság nézet a kamera képére írja a körülötted lévő csúcsok, kilátók, menedékházak és várak nevét, magasságát és távolságát.</p>
+      <div class="eyebrow" data-i18n="nav.ar">AR csúcsnéző</div>
+      <h2 data-i18n="ar.title">Tartsd a kamerát a hegyekre. <span class="grad">Megmondjuk, mit látsz.</span></h2>
+      <p class="sub" data-i18n="ar.sub">A kiterjesztett valóság nézet a kamera képére írja a körülötted lévő csúcsok, kilátók, menedékházak és várak nevét, magasságát és távolságát.</p>
       <ul class="list">
-        <li><span class="chk">✓</span><span><b>Internet nélkül is.</b> Több mint 3500 hely adata már az alkalmazásban van.</span></li>
-        <li><span class="chk">✓</span><span><b>Pontos irány.</b> Valódi északhoz igazít, és a telefon kamerájához méri a látószöget.</span></li>
-        <li><span class="chk">✓</span><span><b>Egy koppintás.</b> Érints meg egy címkét, és látod a magasságot, a távolságot és az irányt.</span></li>
+        <li><span class="chk">✓</span><span data-i18n="ar.l1"><b>Internet nélkül is.</b> Több mint 3500 hely adata már az alkalmazásban van.</span></li>
+        <li><span class="chk">✓</span><span data-i18n="ar.l2"><b>Pontos irány.</b> Valódi északhoz igazít, és a telefon kamerájához méri a látószöget.</span></li>
+        <li><span class="chk">✓</span><span data-i18n="ar.l3"><b>Egy koppintás.</b> Érints meg egy címkét, és látod a magasságot, a távolságot és az irányt.</span></li>
       </ul>
     </div>
     <div class="visual reveal" aria-hidden="true">
@@ -365,15 +385,15 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
           <line x1="300" y1="170" x2="300" y2="146" stroke="#fff" stroke-width="1.5"/>
           <rect x="250" y="104" width="112" height="44" rx="12" fill="rgba(18,20,16,.72)" stroke="rgba(255,255,255,.18)"/>
           <rect x="250" y="104" width="4" height="44" rx="2" fill="#7cc7ff"/>
-          <text x="264" y="123" fill="#fff" font-size="13" font-weight="700">Kilátó</text>
-          <text x="264" y="139" fill="rgba(255,255,255,.7)" font-size="11">kilátótorony</text>
+          <text x="264" y="123" fill="#fff" font-size="13" font-weight="700" data-i18n="svg.lookout">Kilátó</text>
+          <text x="264" y="139" fill="rgba(255,255,255,.7)" font-size="11" data-i18n="svg.tower">kilátótorony</text>
           <line x1="70" y1="150" x2="70" y2="128" stroke="#fff" stroke-width="1.5"/>
           <rect x="22" y="86" width="104" height="44" rx="12" fill="rgba(18,20,16,.72)" stroke="rgba(255,255,255,.18)"/>
           <rect x="22" y="86" width="4" height="44" rx="2" fill="#ffb15c"/>
-          <text x="36" y="105" fill="#fff" font-size="13" font-weight="700">Vár</text>
-          <text x="36" y="121" fill="rgba(255,255,255,.7)" font-size="11">várrom</text>
+          <text x="36" y="105" fill="#fff" font-size="13" font-weight="700" data-i18n="svg.castle">Vár</text>
+          <text x="36" y="121" fill="rgba(255,255,255,.7)" font-size="11" data-i18n="svg.ruin">várrom</text>
         </g>
-        <g fill="#fff" font-family="sans-serif" font-size="12" font-weight="700" opacity=".85"><text x="196" y="326">É</text></g>
+        <g fill="#fff" font-family="sans-serif" font-size="12" font-weight="700" opacity=".85"><text x="196" y="326" data-i18n="svg.north">É</text></g>
       </svg>
     </div>
   </div>
@@ -383,20 +403,20 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
   <div class="container split rev">
     <div class="visual reveal" aria-hidden="true" style="display:grid;place-items:center;padding:28px">
       <div style="width:100%;max-width:360px;display:grid;gap:12px">
-        <div class="float-card" style="position:static;animation:none"><div class="fc-ic">🧭</div><div style="flex:1"><b>Érj el egy kilátót</b><small>Felfedezés</small></div><span style="color:var(--lime);font-weight:800">✓</span></div>
-        <div class="float-card" style="position:static;animation:none"><div class="fc-ic">🌿</div><div style="flex:1"><b>Fotózz le valamit a természetben</b><small>Fotós küldetés</small></div></div>
-        <div class="float-card" style="position:static;animation:none"><div class="fc-ic">💧</div><div style="flex:1"><b>Keress meg egy forrást</b><small>Felfedezés</small></div></div>
-        <div class="float-card" style="position:static;animation:none;border-color:rgba(197,255,41,.4)"><div class="fc-ic">⭐</div><div style="flex:1"><b>Prémium küldetés</b><small>Exkluzív kihívás</small></div><span class="tag" style="position:static">PRO</span></div>
+        <div class="float-card" style="position:static;animation:none"><div class="fc-ic">🧭</div><div style="flex:1" data-i18n="q.c1"><b>Érj el egy kilátót</b><small>Felfedezés</small></div><span style="color:var(--lime);font-weight:800">✓</span></div>
+        <div class="float-card" style="position:static;animation:none"><div class="fc-ic">🌿</div><div style="flex:1" data-i18n="q.c2"><b>Fotózz le valamit a természetben</b><small>Fotós küldetés</small></div></div>
+        <div class="float-card" style="position:static;animation:none"><div class="fc-ic">💧</div><div style="flex:1" data-i18n="q.c3"><b>Keress meg egy forrást</b><small>Felfedezés</small></div></div>
+        <div class="float-card" style="position:static;animation:none;border-color:rgba(197,255,41,.4)"><div class="fc-ic">⭐</div><div style="flex:1" data-i18n="q.c4"><b>Prémium küldetés</b><small>Exkluzív kihívás</small></div><span class="tag" style="position:static">PRO</span></div>
       </div>
     </div>
     <div class="reveal">
-      <div class="eyebrow">Küldetések</div>
-      <h2>Több mint 4000 küldetés. <span class="grad">Mindig van miért elindulni.</span></h2>
-      <p class="sub">Napi kihívások, felfedező feladatok és fotós küldetések, amelyek a környékedhez igazodnak. Teljesítsd őket, gyűjts XP-t, és lépj szintet.</p>
+      <div class="eyebrow" data-i18n="nav.quests">Küldetések</div>
+      <h2 data-i18n="q.title">Több mint 4000 küldetés. <span class="grad">Mindig van miért elindulni.</span></h2>
+      <p class="sub" data-i18n="q.sub">Napi kihívások, felfedező feladatok és fotós küldetések, amelyek a környékedhez igazodnak. Teljesítsd őket, gyűjts XP-t, és lépj szintet.</p>
       <ul class="list">
-        <li><span class="chk">✓</span><span><b>Valódi helyek.</b> A küldetések a térképen is megjelennek, egy koppintással odanavigálhatsz.</span></li>
-        <li><span class="chk">✓</span><span><b>Fotós küldetések.</b> A képfelismerés a telefonon fut, a fotóid privátak maradnak.</span></li>
-        <li><span class="chk">✓</span><span><b>Tisztességes verseny.</b> A pontokat a szerver ellenőrzi, a ranglista mindenkinek fair.</span></li>
+        <li><span class="chk">✓</span><span data-i18n="q.l1"><b>Valódi helyek.</b> A küldetések a térképen is megjelennek, egy koppintással odanavigálhatsz.</span></li>
+        <li><span class="chk">✓</span><span data-i18n="q.l2"><b>Fotós küldetések.</b> A képfelismerés a telefonon fut, a fotóid privátak maradnak.</span></li>
+        <li><span class="chk">✓</span><span data-i18n="q.l3"><b>Tisztességes verseny.</b> A pontokat a szerver ellenőrzi, a ranglista mindenkinek fair.</span></li>
       </ul>
     </div>
   </div>
@@ -405,13 +425,13 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 <section>
   <div class="container">
     <div class="head center reveal">
-      <div class="eyebrow">Így működik</div>
-      <h2>Három lépés a kalandig.</h2>
+      <div class="eyebrow" data-i18n="how.eyebrow">Így működik</div>
+      <h2 data-i18n="how.title">Három lépés a kalandig.</h2>
     </div>
     <div class="steps">
-      <div class="step reveal"><h3>Töltsd le és regisztrálj</h3><p>Pár másodperc egy e-mail címmel. Válaszd ki a nyelvet és a mértékegységet.</p></div>
-      <div class="step reveal"><h3>Válassz túrát vagy küldetést</h3><p>Nézd meg a környékbeli utakat, tervezz körtúrát, vagy indulj el egy napi kihívásra.</p></div>
-      <div class="step reveal"><h3>Indulj, és gyűjtsd a pontokat</h3><p>A TrailQuest rögzíti a túrát, navigál, és jutalmaz minden teljesített küldetésért.</p></div>
+      <div class="step reveal" data-i18n="how.s1"><h3>Töltsd le és regisztrálj</h3><p>Pár másodperc egy e-mail címmel. Válaszd ki a nyelvet és a mértékegységet.</p></div>
+      <div class="step reveal" data-i18n="how.s2"><h3>Válassz túrát vagy küldetést</h3><p>Nézd meg a környékbeli utakat, tervezz körtúrát, vagy indulj el egy napi kihívásra.</p></div>
+      <div class="step reveal" data-i18n="how.s3"><h3>Indulj, és gyűjtsd a pontokat</h3><p>A TrailQuest rögzíti a túrát, navigál, és jutalmaz minden teljesített küldetésért.</p></div>
     </div>
   </div>
 </section>
@@ -420,9 +440,9 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
   <div class="container">
     <div class="safety reveal">
       <div>
-        <div class="eyebrow" style="color:#ff8a8a">Biztonság</div>
-        <h2>Ha baj van, egy gombnyomás.</h2>
-        <p class="sub">Az SOS funkció SMS-ben elküldi a pontos helyzetedet egy térképlinkkel az általad megadott vészhelyzeti kapcsolattartónak. A saját telefonodról megy, internet sem kell hozzá.</p>
+        <div class="eyebrow" style="color:#ff8a8a" data-i18n="safe.eyebrow">Biztonság</div>
+        <h2 data-i18n="safe.title">Ha baj van, egy gombnyomás.</h2>
+        <p class="sub" data-i18n="safe.sub">Az SOS funkció SMS-ben elküldi a pontos helyzetedet egy térképlinkkel az általad megadott vészhelyzeti kapcsolattartónak. A saját telefonodról megy, internet sem kell hozzá.</p>
       </div>
       <div class="sos" aria-hidden="true">SOS</div>
     </div>
@@ -432,32 +452,32 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 <section id="premium">
   <div class="container">
     <div class="head center reveal">
-      <div class="eyebrow">Prémium</div>
-      <h2>Ingyen indulhatsz. <span class="grad">Prémiummal még több.</span></h2>
-      <p class="sub">A túrázás alapjai mindenkinek ingyenesek. A Prémium tagság extra funkciókat nyit meg.</p>
+      <div class="eyebrow" data-i18n="nav.premium">Prémium</div>
+      <h2 data-i18n="pr.title">Ingyen indulhatsz. <span class="grad">Prémiummal még több.</span></h2>
+      <p class="sub" data-i18n="pr.sub">A túrázás alapjai mindenkinek ingyenesek. A Prémium tagság extra funkciókat nyit meg.</p>
     </div>
     <div class="prices">
       <div class="price reveal">
-        <h3>Alap</h3>
-        <div class="amount">0 € <small>/ örökre</small></div>
+        <h3 data-i18n="pr.basic">Alap</h3>
+        <div class="amount" data-i18n="pr.free">0 € <small>/ örökre</small></div>
         <ul>
-          <li>Térkép és offline letöltés</li>
-          <li>Túrarögzítés és túranapló</li>
-          <li>Küldetések, érmek, ranglista</li>
-          <li>Hangos navigáció és körtúra tervező</li>
-          <li>SOS és turistajelzések</li>
+          <li data-i18n="pr.b1">Térkép és offline letöltés</li>
+          <li data-i18n="pr.b2">Túrarögzítés és túranapló</li>
+          <li data-i18n="pr.b3">Küldetések, érmek, ranglista</li>
+          <li data-i18n="pr.b4">Hangos navigáció és körtúra tervező</li>
+          <li data-i18n="pr.b5">SOS és turistajelzések</li>
         </ul>
       </div>
       <div class="price pro reveal">
-        <span class="tag">AJÁNLOTT</span>
-        <h3>Prémium</h3>
-        <div class="amount">4,99 € <small>/ hó</small></div>
+        <span class="tag" data-i18n="pr.rec">AJÁNLOTT</span>
+        <h3 data-i18n="nav.premium">Prémium</h3>
+        <div class="amount" data-i18n="pr.month">4,99 € <small>/ hó</small></div>
         <ul>
-          <li>AR csúcsnéző (kiterjesztett valóság)</li>
-          <li>Élő csapadékradar és időjárás</li>
-          <li>Viharriasztás túra közben</li>
-          <li>Exkluzív prémium küldetések</li>
-          <li>Részletes heti és havi statisztikák</li>
+          <li data-i18n="pr.p1">AR csúcsnéző (kiterjesztett valóság)</li>
+          <li data-i18n="pr.p2">Élő csapadékradar és időjárás</li>
+          <li data-i18n="pr.p3">Viharriasztás túra közben</li>
+          <li data-i18n="pr.p4">Exkluzív prémium küldetések</li>
+          <li data-i18n="pr.p5">Részletes heti és havi statisztikák</li>
         </ul>
       </div>
     </div>
@@ -467,16 +487,16 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 <section id="gyik">
   <div class="container">
     <div class="head center reveal">
-      <div class="eyebrow">GYIK</div>
-      <h2>Gyakori kérdések</h2>
+      <div class="eyebrow" data-i18n="nav.faq">GYIK</div>
+      <h2 data-i18n="faq.title">Gyakori kérdések</h2>
     </div>
     <div class="faq">
-      <details class="reveal"><summary>Működik internet nélkül?</summary><p>Igen. A térképet előre letöltheted, a túrarögzítés és az AR csúcsnéző internet nélkül is működik. Az SOS üzenet SMS-ben megy.</p></details>
-      <details class="reveal"><summary>Melyik telefonokon fut?</summary><p>Android telefonokon. Az AR csúcsnézőhöz kamera és iránytű (magnetométer) szükséges, ez szinte minden mai telefonban megvan.</p></details>
-      <details class="reveal"><summary>Milyen nyelveken érhető el?</summary><p>Magyarul, angolul és németül.</p></details>
-      <details class="reveal"><summary>Mennyire meríti a telefont?</summary><p>A túrarögzítés folyamatosan használja a GPS-t, ami áramot fogyaszt. Hosszabb túrára érdemes külső akkumulátort is vinni.</p></details>
-      <details class="reveal"><summary>Mi történik az adataimmal?</summary><p>Nem adjuk el őket, és nincs reklám az alkalmazásban. Minden részlet az <a href="adatvedelem/">adatvédelmi tájékoztatóban</a> olvasható.</p></details>
-      <details class="reveal"><summary>Hogyan mondhatom le a Prémiumot?</summary><p>Az előfizetést a Google Play áruházban, az Előfizetések menüben bármikor lemondhatod.</p></details>
+      <details class="reveal" data-i18n="faq.q1"><summary>Működik internet nélkül?</summary><p>Igen. A térképet előre letöltheted, a túrarögzítés és az AR csúcsnéző internet nélkül is működik. Az SOS üzenet SMS-ben megy.</p></details>
+      <details class="reveal" data-i18n="faq.q2"><summary>Melyik telefonokon fut?</summary><p>Android telefonokon. Az AR csúcsnézőhöz kamera és iránytű (magnetométer) szükséges, ez szinte minden mai telefonban megvan.</p></details>
+      <details class="reveal" data-i18n="faq.q3"><summary>Milyen nyelveken érhető el?</summary><p>Magyarul, angolul és németül.</p></details>
+      <details class="reveal" data-i18n="faq.q4"><summary>Mennyire meríti a telefont?</summary><p>A túrarögzítés folyamatosan használja a GPS-t, ami áramot fogyaszt. Hosszabb túrára érdemes külső akkumulátort is vinni.</p></details>
+      <details class="reveal" data-i18n="faq.q5"><summary>Mi történik az adataimmal?</summary><p>Nem adjuk el őket, és nincs reklám az alkalmazásban. Minden részlet az <a href="adatvedelem/">adatvédelmi tájékoztatóban</a> olvasható.</p></details>
+      <details class="reveal" data-i18n="faq.q6"><summary>Hogyan mondhatom le a Prémiumot?</summary><p>Az előfizetést a Google Play áruházban, az Előfizetések menüben bármikor lemondhatod.</p></details>
     </div>
   </div>
 </section>
@@ -484,20 +504,20 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
 <section id="teszteles" style="padding-top:20px">
   <div class="container">
     <div class="final reveal">
-      <div class="eyebrow">Zárt teszt</div>
-      <h2>Próbáld ki elsőként a TrailQuestet!</h2>
-      <p class="sub" style="margin:0 auto">Mielőtt megjelenik a Google Playen, zárt tesztet tartunk. Add meg a Google-fiókodhoz tartozó e-mail címed, és meghívunk a tesztelők közé.</p>
+      <div class="eyebrow" data-i18n="su.eyebrow">Zárt teszt</div>
+      <h2 data-i18n="su.title">Próbáld ki elsőként a TrailQuestet!</h2>
+      <p class="sub" style="margin:0 auto" data-i18n="su.sub">Mielőtt megjelenik a Google Playen, zárt tesztet tartunk. Add meg a Google-fiókodhoz tartozó e-mail címed, és meghívunk a tesztelők közé.</p>
       <form class="signup" id="signup" novalidate>
         <div class="signup-row">
-          <label for="signup-email" class="hp">E-mail cím</label>
+          <label for="signup-email" class="hp" data-i18n="su.label">E-mail cím</label>
           <input type="email" id="signup-email" name="email" placeholder="pelda@gmail.com" autocomplete="email" maxlength="254" required>
           <button type="submit" class="btn btn-primary" id="signup-btn">Jelentkezem</button>
         </div>
         <div class="hp" aria-hidden="true"><label for="signup-web">Weboldal</label><input type="text" id="signup-web" name="website" tabindex="-1" autocomplete="off"></div>
-        <label class="consent"><input type="checkbox" id="signup-consent" required><span>Hozzájárulok, hogy az e-mail címemet a tesztre való meghíváshoz kezeljétek. Részletek az <a href="adatvedelem/">adatvédelmi tájékoztatóban</a>.</span></label>
+        <label class="consent"><input type="checkbox" id="signup-consent" required><span data-i18n="su.consent">Hozzájárulok, hogy az e-mail címemet a tesztre való meghíváshoz kezeljétek. Részletek az <a href="adatvedelem/">adatvédelmi tájékoztatóban</a>.</span></label>
         <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
       </form>
-      <p class="contact">Kérdésed van? Írj nekünk: <a href="mailto:trailquestsupport@gmail.com">trailquestsupport@gmail.com</a></p>
+      <p class="contact" data-i18n="su.contact">Kérdésed van? Írj nekünk: <a href="mailto:trailquestsupport@gmail.com">trailquestsupport@gmail.com</a></p>
     </div>
   </div>
 </section>
@@ -506,16 +526,51 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
   <div class="container foot">
     <a href="#" class="logo" style="font-size:16px"><span class="logo-mark" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 52 26 18l11 18 7-11 14 27z" fill="#0a2a1d"/></svg></span>TrailQuest</a>
     <div class="foot-links">
-      <a href="#funkciok">Funkciók</a>
-      <a href="#premium">Prémium</a>
-      <a href="adatvedelem/">Adatvédelem</a>
-      <a href="mailto:trailquestsupport@gmail.com">Kapcsolat</a>
+      <a href="#funkciok" data-i18n="nav.features">Funkciók</a>
+      <a href="#premium" data-i18n="nav.premium">Prémium</a>
+      <a href="adatvedelem/" data-i18n="foot.privacy">Adatvédelem</a>
+      <a href="mailto:trailquestsupport@gmail.com" data-i18n="foot.contact">Kapcsolat</a>
     </div>
     <div>© 2026 TrailQuest</div>
   </div>
 </footer>
 
 <script>
+(function(){
+  // Magyar az alapértelmezett: a HTML magyarul van, angol/német csak választásra (gomb vagy ?lang=en|de).
+  var DICT={"en":{"nav.features":"Features","nav.ar":"AR peak finder","nav.quests":"Quests","nav.premium":"Premium","nav.faq":"FAQ","nav.signup":"Sign up","hero.badge":"<i></i> Coming soon to Google Play","hero.title":"Every hike is <span class=\"grad\">a new adventure.</span>","hero.lead":"TrailQuest turns hiking into a game. Quests, offline maps, an augmented reality peak finder, voice navigation and SOS help, all in one app.","hero.cta":"Become a tester","hero.more":"What can it do? ↓","hero.t1":"<b>4000+</b>quests","hero.t2":"<b>3500+</b>peaks and sights in AR","hero.t3":"<b>3</b>languages: HU · EN · DE","hero.fc1":"<b>Quest completed</b><small>XP credited</small>","svg.active":"ACTIVE HIKE","svg.towards":"Towards Kékes","svg.rec":"RECORDING","svg.inprogress":"Hike in progress","hero.fc2":"<b>Kékes · 1014 m</b><small>AR peak finder</small>","feat.title":"Everything a good hike needs.","feat.sub":"Planning, navigation, discovery and safety. TrailQuest is with you from the trailhead to the summit and back.","feat.map.h":"A map that works offline too","feat.map.p":"Hiking trails, peaks and sights on a clean map. Download the area in advance and you will know where you are even without signal.","feat.rec.h":"Hike recording","feat.rec.p":"GPS track, distance, time and elevation gain. Records accurately even with the screen off.","feat.loop.h":"Loop planner","feat.loop.p":"Tell it how far you want to go and get a loop that brings you back to where you started.","feat.voice.h":"Voice navigation","feat.voice.p":"Tells you where to turn, and plans a new route if you leave the trail.","feat.signs.h":"Trail markings","feat.signs.p":"Blue stripe, red triangle, green circle? We show you where each marking leads.","tag.premium":"PREMIUM","feat.weather.h":"Weather and live radar","feat.weather.p":"Current weather right where you are, live precipitation radar, and an alert when a thunderstorm is heading your way.","feat.hc.p":"Your hikes are saved to Health Connect, so your workout log shows how much you moved.","feat.medals.h":"Medals and levels","feat.medals.p":"Collect XP, level up, earn medals.","feat.stats.h":"Stats and journal","feat.stats.p":"All your hikes in one place, with routes you can look back on.","feat.lb.h":"Leaderboard","feat.lb.p":"See how you measure up against other hikers.","ar.title":"Point your camera at the mountains. <span class=\"grad\">We tell you what you see.</span>","ar.sub":"The augmented reality view writes the name, elevation and distance of the peaks, lookout towers, mountain huts and castles around you onto the camera image.","ar.l1":"<b>Works without internet.</b> Data for more than 3500 places is already in the app.","ar.l2":"<b>Accurate direction.</b> Aligns to true north and matches the field of view to your phone's camera.","ar.l3":"<b>One tap.</b> Tap a label to see the elevation, distance and direction.","svg.lookout":"Lookout","svg.tower":"lookout tower","svg.castle":"Castle","svg.ruin":"castle ruin","svg.north":"N","q.c1":"<b>Reach a lookout tower</b><small>Exploration</small>","q.c2":"<b>Photograph something in nature</b><small>Photo quest</small>","q.c3":"<b>Find a spring</b><small>Exploration</small>","q.c4":"<b>Premium quest</b><small>Exclusive challenge</small>","q.title":"More than 4000 quests. <span class=\"grad\">Always a reason to head out.</span>","q.sub":"Daily challenges, exploration tasks and photo quests tailored to your area. Complete them, collect XP and level up.","q.l1":"<b>Real places.</b> Quests show up on the map too, and one tap navigates you there.","q.l2":"<b>Photo quests.</b> Image recognition runs on your phone, and your photos stay private.","q.l3":"<b>Fair play.</b> Points are checked by the server, so the leaderboard is fair for everyone.","how.eyebrow":"How it works","how.title":"Three steps to adventure.","how.s1":"<h3>Download and sign up</h3><p>A few seconds with an email address. Choose your language and units.</p>","how.s2":"<h3>Pick a hike or a quest</h3><p>Browse nearby trails, plan a loop, or set off on a daily challenge.</p>","how.s3":"<h3>Head out and collect points</h3><p>TrailQuest records your hike, navigates, and rewards every completed quest.</p>","safe.eyebrow":"Safety","safe.title":"If something goes wrong, one tap.","safe.sub":"The SOS feature texts your exact location with a map link to the emergency contact you choose. It goes from your own phone, no internet needed.","pr.title":"Start for free. <span class=\"grad\">Get even more with Premium.</span>","pr.sub":"The hiking basics are free for everyone. Premium membership unlocks extra features.","pr.basic":"Basic","pr.free":"€0 <small>/ forever</small>","pr.b1":"Map and offline download","pr.b2":"Hike recording and journal","pr.b3":"Quests, medals, leaderboard","pr.b4":"Voice navigation and loop planner","pr.b5":"SOS and trail markings","pr.rec":"RECOMMENDED","pr.month":"€4.99 <small>/ month</small>","pr.p1":"AR peak finder (augmented reality)","pr.p2":"Live precipitation radar and weather","pr.p3":"Storm alerts while hiking","pr.p4":"Exclusive premium quests","pr.p5":"Detailed weekly and monthly stats","faq.title":"Frequently asked questions","faq.q1":"<summary>Does it work without internet?</summary><p>Yes. You can download the map in advance, and hike recording and the AR peak finder work offline. The SOS message goes by SMS.</p>","faq.q2":"<summary>Which phones does it run on?</summary><p>Android phones. The AR peak finder needs a camera and a compass (magnetometer), which almost every modern phone has.</p>","faq.q3":"<summary>Which languages is it available in?</summary><p>Hungarian, English and German.</p>","faq.q4":"<summary>How much battery does it use?</summary><p>Hike recording uses GPS continuously, which uses power. For longer hikes it is worth bringing a power bank.</p>","faq.q5":"<summary>What happens to my data?</summary><p>We do not sell it, and there are no ads in the app. All details are in the <a href=\"adatvedelem/\">privacy policy</a> (in Hungarian).</p>","faq.q6":"<summary>How do I cancel Premium?</summary><p>You can cancel the subscription at any time in the Google Play Store, under Subscriptions.</p>","su.eyebrow":"Closed test","su.title":"Be the first to try TrailQuest!","su.sub":"Before it launches on Google Play, we are running a closed test. Enter the email address of your Google account and we will invite you as a tester.","su.label":"Email address","su.consent":"I agree that you may use my email address to invite me to the test. Details are in the <a href=\"adatvedelem/\">privacy policy</a> (in Hungarian).","su.contact":"Have a question? Write to us: <a href=\"mailto:trailquestsupport@gmail.com\">trailquestsupport@gmail.com</a>","foot.privacy":"Privacy","foot.contact":"Contact"},"de":{"nav.features":"Funktionen","nav.ar":"AR-Gipfelfinder","nav.quests":"Missionen","nav.premium":"Premium","nav.faq":"FAQ","nav.signup":"Anmelden","hero.badge":"<i></i> Bald bei Google Play","hero.title":"Jede Wanderung ist <span class=\"grad\">ein neues Abenteuer.</span>","hero.lead":"TrailQuest macht Wandern zum Spiel. Missionen, Offline-Karten, ein Augmented-Reality-Gipfelfinder, Sprachnavigation und SOS-Hilfe, alles in einer App.","hero.cta":"Werde Tester","hero.more":"Was kann sie? ↓","hero.t1":"<b>4000+</b>Missionen","hero.t2":"<b>3500+</b>Gipfel und Sehenswürdigkeiten in AR","hero.t3":"<b>3</b>Sprachen: HU · EN · DE","hero.fc1":"<b>Mission erfüllt</b><small>XP gutgeschrieben</small>","svg.active":"AKTIVE TOUR","svg.towards":"Richtung Kékes","svg.rec":"AUFNAHME","svg.inprogress":"Tour läuft","hero.fc2":"<b>Kékes · 1014 m</b><small>AR-Gipfelfinder</small>","feat.title":"Alles, was eine gute Wanderung braucht.","feat.sub":"Planung, Navigation, Entdecken und Sicherheit. TrailQuest begleitet dich vom Start bis zum Gipfel und zurück.","feat.map.h":"Eine Karte, die auch offline funktioniert","feat.map.p":"Wanderwege, Gipfel und Sehenswürdigkeiten auf einer übersichtlichen Karte. Lade das Gebiet vorher herunter, dann weißt du auch ohne Empfang, wo du bist.","feat.rec.h":"Touraufzeichnung","feat.rec.p":"GPS-Track, Strecke, Zeit und Höhenmeter. Zeichnet auch bei ausgeschaltetem Bildschirm genau auf.","feat.loop.h":"Rundtourenplaner","feat.loop.p":"Gib an, wie weit du gehen willst, und du bekommst eine Runde, die dich zum Ausgangspunkt zurückbringt.","feat.voice.h":"Sprachnavigation","feat.voice.p":"Sagt dir, wo du abbiegen musst, und plant eine neue Route, wenn du vom Weg abkommst.","feat.signs.h":"Wegmarkierungen","feat.signs.p":"Blauer Streifen, rotes Dreieck, grüner Kreis? Wir zeigen dir, wohin jede Markierung führt.","tag.premium":"PREMIUM","feat.weather.h":"Wetter und Live-Radar","feat.weather.p":"Aktuelles Wetter genau dort, wo du bist, Live-Niederschlagsradar und eine Warnung, wenn ein Gewitter auf dich zukommt.","feat.hc.p":"Deine Wanderungen landen in Health Connect, so siehst du auch in deinem Trainingstagebuch, wie viel du dich bewegt hast.","feat.medals.h":"Medaillen und Stufen","feat.medals.p":"Sammle XP, steige auf, verdiene Medaillen.","feat.stats.h":"Statistik und Tagebuch","feat.stats.p":"Alle deine Wanderungen an einem Ort, mit Routen zum Nachschauen.","feat.lb.h":"Bestenliste","feat.lb.p":"Miss dich mit anderen Wanderern.","ar.title":"Richte die Kamera auf die Berge. <span class=\"grad\">Wir sagen dir, was du siehst.</span>","ar.sub":"Die Augmented-Reality-Ansicht blendet Name, Höhe und Entfernung der Gipfel, Aussichtstürme, Hütten und Burgen um dich herum ins Kamerabild ein.","ar.l1":"<b>Auch ohne Internet.</b> Daten zu mehr als 3500 Orten sind bereits in der App.","ar.l2":"<b>Genaue Richtung.</b> Richtet sich nach geografisch Nord aus und passt den Bildwinkel an die Kamera deines Handys an.","ar.l3":"<b>Ein Tipp.</b> Tippe auf ein Label und du siehst Höhe, Entfernung und Richtung.","svg.lookout":"Aussicht","svg.tower":"Aussichtsturm","svg.castle":"Burg","svg.ruin":"Burgruine","svg.north":"N","q.c1":"<b>Erreiche einen Aussichtsturm</b><small>Erkundung</small>","q.c2":"<b>Fotografiere etwas in der Natur</b><small>Fotomission</small>","q.c3":"<b>Finde eine Quelle</b><small>Erkundung</small>","q.c4":"<b>Premium-Mission</b><small>Exklusive Herausforderung</small>","q.title":"Mehr als 4000 Missionen. <span class=\"grad\">Immer ein Grund loszugehen.</span>","q.sub":"Tägliche Herausforderungen, Erkundungsaufgaben und Fotomissionen, passend zu deiner Umgebung. Erfülle sie, sammle XP und steige auf.","q.l1":"<b>Echte Orte.</b> Missionen erscheinen auch auf der Karte, mit einem Tipp navigierst du hin.","q.l2":"<b>Fotomissionen.</b> Die Bilderkennung läuft auf dem Handy, deine Fotos bleiben privat.","q.l3":"<b>Fairer Wettbewerb.</b> Punkte werden vom Server geprüft, die Bestenliste ist für alle fair.","how.eyebrow":"So funktioniert's","how.title":"Drei Schritte zum Abenteuer.","how.s1":"<h3>Herunterladen und registrieren</h3><p>Ein paar Sekunden mit einer E-Mail-Adresse. Wähle Sprache und Maßeinheit.</p>","how.s2":"<h3>Wähle eine Tour oder Mission</h3><p>Sieh dir Wege in der Nähe an, plane eine Rundtour oder starte eine tägliche Herausforderung.</p>","how.s3":"<h3>Los geht's, sammle Punkte</h3><p>TrailQuest zeichnet deine Tour auf, navigiert und belohnt jede erfüllte Mission.</p>","safe.eyebrow":"Sicherheit","safe.title":"Im Notfall ein Knopfdruck.","safe.sub":"Die SOS-Funktion schickt deinen genauen Standort mit Kartenlink per SMS an deinen Notfallkontakt. Sie geht von deinem eigenen Handy aus, Internet ist nicht nötig.","pr.title":"Kostenlos starten. <span class=\"grad\">Mit Premium noch mehr.</span>","pr.sub":"Die Grundfunktionen sind für alle kostenlos. Die Premium-Mitgliedschaft schaltet Extras frei.","pr.basic":"Basis","pr.free":"0 € <small>/ für immer</small>","pr.b1":"Karte und Offline-Download","pr.b2":"Touraufzeichnung und Tourentagebuch","pr.b3":"Missionen, Medaillen, Bestenliste","pr.b4":"Sprachnavigation und Rundtourenplaner","pr.b5":"SOS und Wegmarkierungen","pr.rec":"EMPFOHLEN","pr.month":"4,99 € <small>/ Monat</small>","pr.p1":"AR-Gipfelfinder (Augmented Reality)","pr.p2":"Live-Niederschlagsradar und Wetter","pr.p3":"Unwetterwarnung unterwegs","pr.p4":"Exklusive Premium-Missionen","pr.p5":"Detaillierte Wochen- und Monatsstatistiken","faq.title":"Häufige Fragen","faq.q1":"<summary>Funktioniert sie ohne Internet?</summary><p>Ja. Die Karte kannst du vorher herunterladen, Touraufzeichnung und AR-Gipfelfinder funktionieren offline. Die SOS-Nachricht geht per SMS.</p>","faq.q2":"<summary>Auf welchen Handys läuft sie?</summary><p>Auf Android-Handys. Der AR-Gipfelfinder braucht Kamera und Kompass (Magnetometer), die fast jedes aktuelle Handy hat.</p>","faq.q3":"<summary>In welchen Sprachen gibt es sie?</summary><p>Auf Ungarisch, Englisch und Deutsch.</p>","faq.q4":"<summary>Wie stark belastet sie den Akku?</summary><p>Die Touraufzeichnung nutzt dauerhaft GPS, das kostet Strom. Für längere Touren lohnt sich eine Powerbank.</p>","faq.q5":"<summary>Was passiert mit meinen Daten?</summary><p>Wir verkaufen sie nicht, und es gibt keine Werbung in der App. Alle Details stehen in der <a href=\"adatvedelem/\">Datenschutzerklärung</a> (auf Ungarisch).</p>","faq.q6":"<summary>Wie kündige ich Premium?</summary><p>Du kannst das Abo jederzeit im Google Play Store unter Abos kündigen.</p>","su.eyebrow":"Geschlossener Test","su.title":"Sei unter den Ersten, die TrailQuest testen!","su.sub":"Bevor die App bei Google Play erscheint, gibt es einen geschlossenen Test. Gib die E-Mail-Adresse deines Google-Kontos an, und wir laden dich als Tester ein.","su.label":"E-Mail-Adresse","su.consent":"Ich willige ein, dass meine E-Mail-Adresse für die Einladung zum Test verarbeitet wird. Details in der <a href=\"adatvedelem/\">Datenschutzerklärung</a> (auf Ungarisch).","su.contact":"Fragen? Schreib uns: <a href=\"mailto:trailquestsupport@gmail.com\">trailquestsupport@gmail.com</a>","foot.privacy":"Datenschutz","foot.contact":"Kontakt"}};
+  var STR={"hu":{"title":"TrailQuest – Túrázz kalandként","desc":"TrailQuest: túraalkalmazás küldetésekkel, offline térképpel, kiterjesztett valóságos csúcsnézővel, hangos navigációval és SOS funkcióval.","placeholder":"pelda@gmail.com","msg.bademail":"Kérlek, adj meg egy érvényes e-mail címet.","msg.consent":"A jelentkezéshez fogadd el az adatkezelést.","msg.thanks":"Köszönjük, megkaptuk a jelentkezésed!","msg.sending":"Küldés…","msg.ok":"Köszönjük! Hamarosan küldjük a meghívót a megadott címre.","msg.dup":"Ezzel a címmel már jelentkeztél, köszönjük!","msg.fail":"Most nem sikerült elküldeni. Kérlek, próbáld újra később.","msg.offline":"Nincs kapcsolat a szerverrel. Ellenőrizd az internetet, és próbáld újra.","btn":"Jelentkezem","switch":"Nyelv"},"en":{"title":"TrailQuest – Hiking as an adventure","desc":"TrailQuest: a hiking app with quests, offline maps, an augmented reality peak finder, voice navigation and SOS.","placeholder":"example@gmail.com","msg.bademail":"Please enter a valid email address.","msg.consent":"To sign up, please accept the data processing.","msg.thanks":"Thanks, we got your sign-up!","msg.sending":"Sending…","msg.ok":"Thank you! We will send the invitation to this address soon.","msg.dup":"You have already signed up with this address, thank you!","msg.fail":"It could not be sent right now. Please try again later.","msg.offline":"No connection to the server. Check your internet and try again.","btn":"Sign me up","switch":"Language"},"de":{"title":"TrailQuest – Wandern als Abenteuer","desc":"TrailQuest: Wander-App mit Missionen, Offline-Karten, Augmented-Reality-Gipfelfinder, Sprachnavigation und SOS-Funktion.","placeholder":"beispiel@gmail.com","msg.bademail":"Bitte gib eine gültige E-Mail-Adresse ein.","msg.consent":"Bitte stimme der Datenverarbeitung zu, um dich anzumelden.","msg.thanks":"Danke, deine Anmeldung ist angekommen!","msg.sending":"Wird gesendet…","msg.ok":"Danke! Wir schicken die Einladung bald an diese Adresse.","msg.dup":"Mit dieser Adresse bist du schon angemeldet, danke!","msg.fail":"Das hat gerade nicht geklappt. Bitte versuche es später noch einmal.","msg.offline":"Keine Verbindung zum Server. Prüfe dein Internet und versuche es erneut.","btn":"Anmelden","switch":"Sprache"}};
+  var LANGS=['hu','en','de'], cur='hu', huCache={};
+  var nodes=document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function(el){huCache[el.getAttribute('data-i18n')]=el.innerHTML;});
+  window.TQ_T=function(k){return (STR[cur]&&STR[cur][k])||STR.hu[k]||k;};
+  function store(l){try{localStorage.setItem('tq-lang',l);}catch(e){}}
+  function stored(){try{return localStorage.getItem('tq-lang');}catch(e){return null;}}
+  function apply(l,save){
+    if(LANGS.indexOf(l)<0) l='hu';
+    cur=l;
+    nodes.forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      var v=l==='hu'?huCache[k]:(DICT[l][k]!=null?DICT[l][k]:huCache[k]);
+      if(el.innerHTML!==v) el.innerHTML=v;
+    });
+    document.documentElement.lang=l;
+    document.title=TQ_T('title');
+    var d=document.getElementById('meta-desc'); if(d) d.setAttribute('content',TQ_T('desc'));
+    var em=document.getElementById('signup-email'); if(em) em.setAttribute('placeholder',TQ_T('placeholder'));
+    var b=document.getElementById('signup-btn'); if(b&&!b.disabled) b.textContent=TQ_T('btn');
+    var m=document.getElementById('signup-msg'); if(m) {m.textContent='';m.className='signup-msg';}
+    document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-lang')===l?'true':'false');});
+    if(save){
+      store(l);
+      try{var u=new URL(location.href); if(l==='hu') u.searchParams.delete('lang'); else u.searchParams.set('lang',l); history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){}
+    }
+  }
+  document.querySelectorAll('.lang button').forEach(function(x){x.addEventListener('click',function(){apply(x.getAttribute('data-lang'),true);});});
+  var q=null; try{q=new URLSearchParams(location.search).get('lang');}catch(e){}
+  var start=(q&&LANGS.indexOf(q)>=0)?q:(stored()||'hu');
+  if(start!=='hu') apply(start,false);
+})();
 (function(){
   var URL='https://gnagburxuordgldveoic.supabase.co/rest/v1/tester_signups';
   var KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduYWdidXJ4dW9yZGdsZHZlb2ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0MzgwOTYsImV4cCI6MjEwMzAxNDA5Nn0.7XSPrH-f-_xbxvdhRkbr3LieJM5rQd0zey6PSl3wH98';
@@ -526,18 +581,18 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px;color:var(--muted);f
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var v=email.value.trim();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)||v.length>254){show('Kérlek, adj meg egy érvényes e-mail címet.',false);email.focus();return;}
-    if(!consent.checked){show('A jelentkezéshez fogadd el az adatkezelést.',false);consent.focus();return;}
-    if(hp.value){show('Köszönjük, megkaptuk a jelentkezésed!',true);form.reset();return;}
-    btn.disabled=true;btn.textContent='Küldés…';show('',true);
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)||v.length>254){show(TQ_T('msg.bademail'),false);email.focus();return;}
+    if(!consent.checked){show(TQ_T('msg.consent'),false);consent.focus();return;}
+    if(hp.value){show(TQ_T('msg.thanks'),true);form.reset();return;}
+    btn.disabled=true;btn.textContent=TQ_T('msg.sending');show('',true);
     fetch(URL,{method:'POST',headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({email:v})})
       .then(function(r){
-        if(r.ok){show('Köszönjük! Hamarosan küldjük a meghívót a megadott címre.',true);form.reset();}
-        else if(r.status===409){show('Ezzel a címmel már jelentkeztél, köszönjük!',true);form.reset();}
-        else{show('Most nem sikerült elküldeni. Kérlek, próbáld újra később.',false);}
+        if(r.ok){show(TQ_T('msg.ok'),true);form.reset();}
+        else if(r.status===409){show(TQ_T('msg.dup'),true);form.reset();}
+        else{show(TQ_T('msg.fail'),false);}
       })
-      .catch(function(){show('Nincs kapcsolat a szerverrel. Ellenőrizd az internetet, és próbáld újra.',false);})
-      .then(function(){btn.disabled=false;btn.textContent='Jelentkezem';});
+      .catch(function(){show(TQ_T('msg.offline'),false);})
+      .then(function(){btn.disabled=false;btn.textContent=TQ_T('btn');});
   });
 })();
 (function(){
